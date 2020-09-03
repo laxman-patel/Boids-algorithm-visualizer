@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Boids algorithm visualizer</title>
+    <noscript
+      ><h1>Seriously?enable JavaScript Please... it's 2020</h1></noscript
+    >
+    <script defer>
+      function jsLoad() {
+        document.body.style.visibility = "visible";
+      }
+
+      function showMenu() {
+        let controls = document.getElementById("controls");
+        let button = document.querySelector(".menuOpen");
+
+        controls.style.visibility = "visible";
+        button.style.visibility = "hidden";
+      }
+
+      function hideMenu() {
+        let controls = document.getElementById("controls");
+        let button = document.querySelector(".menuOpen");
+
+        controls.style.visibility = "hidden";
+        button.style.visibility = "visible";
+      }
+    </script>
+  </head>
+  <body style="visibility: hidden" onload="jsLoad()">
+    <canvas> </canvas>
+
+    <div id="controls" class="controls">
+      <div class="heading">
+        <h1>Boids <span>algorithm visualization</span></h1>
+        <button onclick="hideMenu()" class="menuClose">✖</button>
+      </div>
+      <h2>Controls</h2>
+      <div class="sliderContainer">
+        <label>alignment</label>
+        <input
+          class="slider"
+          type="range"
+          min="0"
+          max="20"
+          value="10"
+          id="alignmentSlider"
+        />
+      </div>
+      <div class="sliderContainer">
+        <label>separation</label>
+        <input
+          class="slider"
+          type="range"
+          min="0"
+          max="20"
+          value="10"
+          id="separationSlider"
+        />
+      </div>
+      <div class="sliderContainer">
+        <label>cohesion</label>
+        <input
+          class="slider"
+          type="range"
+          min="0"
+          max="20"
+          value="10"
+          id="cohesionSlider"
+        />
+      </div>
+    </div>
+    <button onclick="showMenu()" class="menuOpen">
+      <p>🍔</p>
+    </button>
+  </body>
+</html>
