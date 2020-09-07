@@ -151,3 +151,15 @@ canvas {
     background: rgba(255, 255, 255, 0.4);
   }
 }
+
+.anchor {
+  margin-top: 10px;
+  color: #2c3e50;
+  text-decoration: none;
+
+  transition: ease-in-out 100ms color;
+
+  &:hover {
+    color: #000;
+  }
+}

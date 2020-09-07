@@ -39,6 +39,8 @@ export let c = canvas.getContext("2d");
 let boidsArr = [];
 let numBoids = 200;
 
+let showTrails = true;
+
 const colors = ["#ffbe0b", "#fb5607", "#ff006e", "#8338ec", "#3a86ff"];
 
 for (let i = 0; i < numBoids; i++) {
@@ -50,7 +52,7 @@ for (let i = 0; i < numBoids; i++) {
 function animate() {
   requestAnimationFrame(animate);
 
-  c.fillStyle = " rgba(1, 1, 10, 0.2) ";
+  c.fillStyle = `rgba(1, 1, 10,${showTrails ? "0.2" : "1"} )`;
   c.fillRect(0, 0, width, height);
 
   boidsArr.forEach((boid) => {
