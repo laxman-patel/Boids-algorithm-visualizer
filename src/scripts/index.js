@@ -19,6 +19,8 @@ let alignmentVal = alignmentSlider.value;
 let cohesionVal = cohesionSlider.value;
 let separationVal = separationSlider.value;
 
+let resetBtn = document.getElementById("resetBtn");
+
 alignmentSlider.addEventListener("change", () => {
   alignmentVal = alignmentSlider.value;
 });
@@ -49,13 +51,31 @@ for (let i = 0; i < numBoids; i++) {
   );
 }
 
+resetBtn.addEventListener("click", () => {
+  boidsArr = [];
+
+  alignmentSlider.value = 10;
+  cohesionSlider.value = 10;
+  separationSlider.value = 10;
+
+  alignmentVal = 10;
+  cohesionVal = 10;
+  separationVal = 10;
+
+  for (let i = 0; i < numBoids; i++) {
+    boidsArr.push(
+      new Boid(c, colors[getRandomInt(1, colors.length)], getRandomInt(1, 3))
+    );
+  }
+});
+
 function animate() {
   requestAnimationFrame(animate);
 
   c.fillStyle = `rgba(1, 1, 10,${showTrails ? "0.2" : "1"} )`;
   c.fillRect(0, 0, width, height);
 
-  boidsArr.forEach((boid) => {
+  boidsArr.forEach(boid => {
     boid.execute(boidsArr, alignmentVal, cohesionVal, separationVal);
   });
 }
